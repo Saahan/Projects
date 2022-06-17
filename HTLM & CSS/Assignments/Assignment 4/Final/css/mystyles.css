@@ -1,0 +1,305 @@
+@charset "UTF-8";
+/* General Styles */
+
+* {
+  background: whitesmoke;
+font-family: 'Athiti';font-size: 14px; /*Change font size for bigger*/
+}
+
+/* Header Styles */
+
+header {
+  background-color: rgb(232, 235, 206);
+}
+
+/* Navbar Styles (A Horizontal Menu) */
+
+.nav-grid {
+  display: grid;
+  width: 50vw;
+  grid-template-areas: "home gallery cu";
+  text-align: center;
+  padding-left: 50px;
+  background-color: rgb(232, 235, 206);
+  gap:7px;
+  }
+
+.nav-item {
+  background-color: rgb(232, 235, 206);
+}
+
+.nav1 {
+  grid-area: home;
+}
+
+.nav1:hover {
+  background-color: whitesmoke;
+}
+
+.nav1:hover a {
+  background-color: whitesmoke;
+  color: rgba(78, 75, 18, 0.493);
+}
+
+.nav2 {
+  grid-area: gallery;
+}
+
+.nav2:hover {
+  background-color: whitesmoke;
+}
+
+.nav2:hover a {
+  background-color: whitesmoke;
+  color: rgba(78, 75, 18, 0.493);
+}
+
+.nav3 {
+  grid-area: cu;
+}
+
+.nav3:hover {
+  background-color: whitesmoke;
+}
+
+.nav3:hover a {
+  background-color: whitesmoke;
+  color: rgba(78, 75, 18, 0.493);
+}
+
+/* 
+.nav4 {
+  grid-area: signup;
+}
+
+.nav4:hover {
+  background-color: whitesmoke;
+}
+
+.nav4:hover a {
+  background-color: whitesmoke;
+  color: black;
+} */
+
+
+a {
+  background-color:rgb(232, 235, 206);
+  color: rgba(78, 75, 18, 0.493);
+  text-decoration: none;
+}
+
+/* Image Styling */
+
+figure {
+    margin: 5px 0px 10px 0px;
+}
+
+figcaption {
+color:rgba(78, 75, 18, 0.493) ;
+}
+
+.banner {
+  display: block;
+    width: 100%;    /*edited image quality and height for bigger screen*/
+    height: 15vh;
+ }
+
+.bannerhires {
+  display: none;
+}
+
+.mapimg {      /*changed size of map for bigger screen*/
+  width:20%;
+  height:auto;
+}
+
+/* Heading Styling */
+
+.mainheading {
+    border-radius: 30px;
+    margin: 10px 25vw 20px 25vw;   /*changed increase font size for bigger screens*/
+    font-size: 18px;        
+    text-align: center;
+    background-color: gray;
+    font-family: 'Carattere';
+    color: rgba(78, 75, 18, 0.493);
+    background-color: rgb(232, 235, 206);
+     }
+
+hr {
+  color:rgba(78, 75, 18, 0.493);
+}
+
+h2 {
+  color:rgba(78, 75, 18, 0.493) ;
+}
+
+h1 {
+  color:rgba(78, 75, 18, 0.493) ;
+}
+
+/* Flex Styling */
+
+.flex-locations {
+display: flex;
+gap: 15px; /*changed gap for bigger screen*/
+flex-direction: column;
+margin-left: 20px; /* changed to row for bigger screens*/
+}
+
+/* Body Styling */
+
+.welcome {
+  background: linear-gradient(rgb(237, 240, 216),whitesmoke);
+  text-align: center;
+}
+
+/* Gallery Styling */
+.galgrid {
+  display: grid;
+  gap: 20px;
+  grid-template-areas: 'image1'    /*changed to two per row for bigger screens */
+  'image2'
+  'image3'
+  'image4'
+  'image5'
+  'image6'
+  'image7'
+  'image8'
+  'image9'
+  'image10';
+  margin: 10px 0px 10px 30px;
+}
+
+.gal1 {
+  grid-area: image1;
+}
+
+.gal2 {
+  grid-area: image2;
+}
+
+.gal3 {
+  grid-area: image3;
+}
+
+.gal4 {
+  grid-area: image4;
+}
+
+.gal5 {
+  grid-area: image5;
+}
+
+.gal6 {
+  grid-area: image6;
+ }
+
+.gal7 {
+  grid-area: image7;
+}
+
+.gal8 {
+  grid-area: image8;
+}
+
+.gal9 {
+  grid-area: image9;
+}
+
+.gal10 {
+  grid-area: image10;
+}
+
+.galimg {
+  width: 90%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 5px 5px 5px gray;
+}
+
+/* Contact Us Styling */
+
+.email {
+  background: none;
+}
+
+.contact, form {
+  margin-left: 20px;
+}
+
+.submit, .reset {
+background-color: rgb(232, 235, 206);
+color:rgba(78, 75, 18, 0.493) ;
+}
+
+.footer {
+  background-color:rgba(78, 75, 18, 0.493);
+  font-size: 10px;
+  color: white;
+  font-style: italic;
+  margin-top: 20%;
+}
+
+.cfooter {
+  background-color:rgba(78, 75, 18, 0.493);
+  font-size: 10px;
+  color: white;
+  font-style: italic;
+  margin-top: 300px;
+}                
+
+
+/* Media Queries */
+
+@media only screen and (min-width: 768px){
+* {
+  font-size: 20px;
+}
+
+.bannerhires {
+display: block;
+width: 100%;
+height: 30vh;
+}
+
+.banner {
+  display: none;
+}
+
+.mainheading {
+  font-size: 40px;
+}
+.nav-grid {
+  gap:0px;
+}
+
+.flex-locations {
+  flex-direction: row;
+  gap:100px;
+}
+
+.mapimg {
+  width: 15vw;
+  height:auto;
+}
+
+.galgrid {
+  gap: 20px;
+  grid-template-areas: 'image1 image2'
+  'image3 image4'
+  'image5 image6'
+  'image7 image8'
+  'image9 image10';    
+   margin: 10px 0px 10px 80px;
+}
+}
+
+/* Improve the hi res banner image in bigger sreens than iPads */
+@media only screen and (min-width: 1080px) {
+  .bannerhires {
+    display: block;
+    width: 100%;
+    height: 60vh;
+    }
+}

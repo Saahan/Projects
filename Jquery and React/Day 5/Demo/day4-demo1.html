@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>Hello World!</title>
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="my_react_component_container"></div>
+
+    <script type="text/babel">
+        function d() {
+            render(
+                <h1>Hello world! from ICT 581!</h1>
+            )
+        }
+
+        // The below code renders the React component in hour HTML element
+        // ReactDOM.render(<App />, document.getElementById('my_react_component_container'))
+        const domContainer = document.getElementById('my_react_component_container');
+        const root = ReactDOM.createRoot(domContainer);
+        root.render(<d />, document.getElementById("my_react_component_container"));
+    </script>
+</body>
+
+</html>

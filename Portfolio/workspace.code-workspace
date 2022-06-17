@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "..\\HTLM & CSS"
+		},
+		{
+			"path": "..\\Javascript and the DOM"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Javascript and the DOM",
+		"liveServer.settings.port": 5501
+	}
+}

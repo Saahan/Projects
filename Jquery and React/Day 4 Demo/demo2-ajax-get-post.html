@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo basic Ajax</title>
+    <!-- Link jQuery from a CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        .content_div {
+            background-color: rgb(252, 224, 135);
+            border: 3px solid orange;
+            margin: 0px 20px 20px 20px;
+            padding: 10px;
+        }
+
+        .green {
+            color: green;
+        }
+
+        .red {
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>This is an Ajax demo</h1>
+    <h2>This content is loaded from a text file:</h2>
+    <div id="text_contents"></div>
+    <h2>This content is loaded from a json file:</h2>
+    <div id="json_contents"></div>
+    <h2>This content is loaded from an html file:</h2>
+    <div id="html_contents"></div>
+
+
+    <script>
+        // Gets text data, ignore the coming data (do nothing with the data)
+        $.get('data.txt');
+        // Gets text data, send a parameter to the server, ignore the coming data (do nothing with the data)
+        $.get('data.txt', { name: "Mostafa" });
+        // Gets text data, write the data into a div
+        $.get("data.txt", function (data) {
+            $('#text_contents').text(data);
+        });
+
+        // Gets JSON data, use a callback function to process the data
+        let jdiv = $('#json_contents');     // store the element to show the data in
+        $.get("data.json", process_response, 'json');   // specifying the format is optional 
+
+        // Gets HTML data, use a callback function to process the data
+        $.get('data.html', function process_response(response, statusTxt, xhr) {
+            if (statusTxt == "success")
+                $('#html_contents')
+                    .html(response
+                        + '<h5 class="green"><i>Content loaded successfully.</i></h5>')
+        });
+
+
+        // Get some data to the server using POST method
+        $.post("/", { name: "Samy" });
+
+        // Change the DIV styles based on part of the ID value, will not work without proper server
+        $('div[id*="contents"]').addClass('content_div');
+
+        function process_response(response, statusTxt, xhr) {
+            // If the response is an object, serialize it to text
+            if (typeof (response) == 'object') response = JSON.stringify(response);
+            if (statusTxt == "success")
+                jdiv     // "this" will reference the element that called the function
+                    .html(response
+                        + '<h5 class="green"><i>Content loaded successfully.</i></h5>');
+            if (statusTxt == "error")
+                jdiv
+                    .html('<h3 class="red">Content load error.</h3>')
+                    .append("Error: " + xhr.status + ": " + xhr.statusText);
+        }
+    </script>
+</body>
+
+</html>

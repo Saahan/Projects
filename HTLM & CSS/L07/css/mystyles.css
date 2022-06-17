@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* General Styles */
+
+body {
+    margin: 0px;
+}
+
+
+
+/* Grid Styles */
+.grid-container {
+    background-color: #58595b;
+    display: grid;
+    gap: 10px;
+    grid-template-areas: 
+    'mainnav'
+    'header'
+    'content'
+    'sidebar'
+    'footer';
+}
+
+.grid-item {
+    padding:30px;
+}
+.grid-mainnav {
+    background-color: rgb(128, 128, 128);
+    grid-area:mainnav;
+}
+
+.grid-header {
+    background-color: rgb(255, 248, 248);
+    grid-area:header;
+}
+
+.grid-content {
+    background-color: e6e7e8;
+    grid-area:content;
+}
+
+.grid-sidebar {
+    background-color: d0d2d3;
+    grid-area:sidebar;
+}
+
+.grid-footer {
+    background-color: e6e7e8;
+    grid-area:footer;
+}
+
+/* Media Queries Styles for Large Screens */

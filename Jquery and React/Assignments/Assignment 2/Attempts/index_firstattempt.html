@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      class Banner extends React.Component {
+        render() {
+          return (
+            <img
+              src="https://schoolweb.tdsb.on.ca/portals/pearsonci/images/pearson%20math%20banner%201.PNG?ver=2020-01-30-135032-477"
+              alt="banner missing"
+              width="100%"
+              height="250px"
+            />
+          );
+        }
+      }
+        // -----------------------------------------------PARENT--------------------------------------------------------------------//
+
+class ParentComp extends React.Component {
+        constructor(props) {
+          super(props);
+
+        }
+
+        render() {
+          return(
+          <div>
+          <Inputs num1={} num2={} selectedSign={}/>
+          <Output num1={} num2={} answer={} sign={}/>
+          </div>
+          );
+        }
+      }
+
+      // ------------------------------------------------INPUTS---------------------------------------------------------------//
+
+      class Inputs extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { value1: '', value2:''};
+          this.storeFirstNum = this.storeFirstNum.bind(this);
+          this.storeSecondNum = this.storeSecondNum.bind(this);
+          this.selectOption = this.selectOption.bind(this);
+           }
+
+        storeFirstNum(fnumber) {this.setState((state,props) => {return {firstnumber: fnumber.target.value}})}
+
+        storeSecondNum(snumber) {this.setState((state,props) => {return {secondnumber: snumber.target.value}})}
+
+        selectOption(option) {
+            this.setState((state,props) => {return {selectedSign: option.target.value}})
+        }
+        
+
+        render() {
+          return (
+            <div>
+              <form onSubmit={this.Calculate}>
+                <label htmlFor="fnumber">Enter First Number: </label>
+                <input type="numbers" id="fnumber" name="fnumber" onChange={this.storeFirstNum}></input>
+                <label htmlFor="snumber">Enter Second Number: </label>
+                <input type="numbers" id="snumber" name="snumber" onChange={this.storeSecondNum}></input>
+                <label htmlFor="snumber"> </label>
+
+                <label htmlFor="operation ">
+                  Choose mathematical operation to perfom:
+                </label>
+                <select id="operation" name="operation" onChange={this.selectOption}>
+                  <option value={1}>+</option>
+                  <option value={2}>-</option>
+                  <option value={3}>*</option>
+                  <option value={4}>/</option>
+                  </select>
+                  <button type="submit">GO!</button>
+                  {this.state.firstnumber}
+                  {this.state.selectedSign}
+                  {this.state.secondnumber}
+              </form>
+            </div>
+          );
+        }
+      }
+
+      // -------------------------------------------------OUTPUT-----------------------------------------------------------//
+      class Output extends React.Component {
+        constructor(props) {
+          super(props);
+         }
+
+        render() {
+          return (
+            <div>
+              <p>
+                <span>{props.num1}</span> <span>{props.sign}</span> <span>{props.num2}</span> <span>=</span> <span>{props.answer}</span>
+              </p>
+            </div>
+          );
+        }
+      } 
+
+      // -------------------------------------------------RENDER-----------------------------------------------------------//
+      
+      root.render(
+        <ParentComp />
+      );
+    </script>
+  </body>
+</html>

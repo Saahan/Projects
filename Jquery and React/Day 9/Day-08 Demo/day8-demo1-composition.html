@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>React Composition</title>
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h2>A menu using composition</h2>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // The below code renders the React Element in the our HTML 
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+
+        class Menu extends React.Component {
+            constructor(props) {
+                super(props);
+            }
+            render() {
+                return (
+                    <nav className="navbar navbar-expand-lg bg-light">
+                        <div className="container-fluid">
+                            <a className="navbar-brand" href="#">My Menu</a>
+                            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span className="navbar-toggler-icon"></span>
+                            </button>
+                            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                                    {this.props.children}
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                );
+            }
+        }
+
+        function MenuItem(props) {
+            return (
+                <li className="nav-item">
+                    <a className={"nav-link " + props.active} ariaCurrent="page" href={props.url}>{props.text}</a>
+                </li>
+            );
+        }
+
+        root.render(
+            <div>
+                <Menu>
+                    {/*<li className="nav-item">
+                        <a className="nav-link active" ariaCurrent="page" href='/'>Home</a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link" ariaCurrent="page" href='/about'>About</a>
+                    </li>*/}
+                    <MenuItem url="/" text='Home' active='active' />
+                    <MenuItem url="/services" text='Services' />
+                    <MenuItem url="/about" text='About' />
+                </Menu>
+            </div>);
+    </script>
+</body>
+
+</html>

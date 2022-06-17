@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Calculator</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body class="container">
+    <div id="root"></div>
+    <script type="text/babel">
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      // ------------------------------------------------BANNER-----------------------------------------------------------------------------------//
+
+    class Banner extends React.Component {
+        render() {
+          return (
+            <img
+              src="https://schoolweb.tdsb.on.ca/portals/pearsonci/images/pearson%20math%20banner%201.PNG?ver=2020-01-30-135032-477"
+              alt="banner missing"
+              width="100%"
+              height="200px"
+            />
+          );
+        }
+      }
+
+     // ------------------------------------------------MAINPROGRAM------------------------------------------------------------------------------------//
+
+    class MainProgram extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {selectedSign: "+", firstnumber: "enter", secondnumber: "numbers", answer:0};                  //declare initial states
+          this.storeFirstNum = this.storeFirstNum.bind(this);
+          this.storeSecondNum = this.storeSecondNum.bind(this);
+          this.selectOption = this.selectOption.bind(this);
+          this.DisplayOutput = this.DisplayOutput.bind(this);
+           }
+
+        storeFirstNum(fnumber) {this.setState((state,props) => {return {firstnumber: fnumber.target.value}})}      //store the entered numbers as a state on change of input field
+
+        storeSecondNum(snumber) {this.setState((state,props) => {return {secondnumber: snumber.target.value}})}
+
+        selectOption(option) {
+            this.setState((state,props) => {return {selectedSign: option.target.value}})
+        }
+
+        DisplayOutput(index, answer) {this.setState((state,props) => {return {index: 1}});                        //change the state of answer depending on the operation selected
+        if(this.state.selectedSign == "+"){
+        this.setState((state,props) => {return {answer:(parseInt(this.state.firstnumber) + parseInt(this.state.secondnumber)) }})}
+        else if (this.state.selectedSign == "-")
+        {
+          this.setState((state,props) => {return {answer:(parseInt(this.state.firstnumber) - parseInt(this.state.secondnumber)) }})
+        }
+        else if (this.state.selectedSign == "*")
+        {
+          this.setState((state,props) => {return {answer:(parseInt(this.state.firstnumber) * parseInt(this.state.secondnumber)) }})
+        }
+        else {
+          this.setState((state,props) => {return {answer:(parseInt(this.state.firstnumber) / parseInt(this.state.secondnumber)) }})
+        }
+      }
+
+
+        render() {
+          return (                                                                                              //form render
+            <div >
+              <form>
+                
+                <input type="number" id="fnumber" name="fnumber" onChange={this.storeFirstNum} placeholder="Enter First Number"></input><br />
+                <br />
+                <input type="number" id="snumber" name="snumber" onChange={this.storeSecondNum} placeholder="Enter Second Number"></input>
+                
+                <br />
+                <br />
+                <label htmlFor="operation ">
+                  Operation 
+                </label>
+                <br/>
+                <select id="operation" name="operation" onChange={this.selectOption}>
+                  <option value="+">+</option>
+                  <option value="-">-</option>
+                  <option value="*">*</option>
+                  <option value="/">/</option>
+                  </select>
+                  <br />
+                  <br />
+                  <button type="button" onClick={this.DisplayOutput}>Calculate!</button>                     
+
+                  
+              </form>
+              {this.state.index == 1 &&                                                                    //render output class where the data from main program is sent as props
+              <Output num1={this.state.firstnumber} sign={this.state.selectedSign} num2={this.state.secondnumber} answer={this.state.answer} />
+              }
+            </div>
+          );
+        }
+      }
+
+       // -------------------------------------------------OUTPUT--------------------------------------------------------------------------------------//
+
+       class Output extends React.Component {                                                             //render output class
+        constructor(props) {
+          super(props);
+         }
+
+        render() {
+          return (
+            <div>
+              <p>
+                <span>{this.props.num1}</span> <span>{this.props.sign}</span> <span>{this.props.num2}</span> <span>=</span> <span>{this.props.answer}</span>
+              </p>
+            </div>
+          );
+        }
+      } 
+
+      // -------------------------------------------------FOOTER--------------------------------------------------------------------------------------//
+
+      class Footer extends React.Component {                                                            //footer class render
+        constructor(props) {
+          super(props);
+         }
+
+        render() {
+          return (
+            <div>
+              <footer style={{
+          position: "fixed",
+          left: 0,
+          bottom: 0,
+          right: 0,
+          backgroundColor: "skyblue"
+          }}>Author: Saahan  </footer>
+            </div>
+          );
+        }
+      } 
+
+      // -------------------------------------------------FINAL RENDER-----------------------------------------------------------------------------------//
+
+
+      
+      
+      root.render(                                                                                          //final render
+        <div >
+        <Banner />
+        <div style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 100
+        }}>
+        <MainProgram />
+        </div>
+        <Footer />
+        </div>
+      );
+    </script>
+    </body>

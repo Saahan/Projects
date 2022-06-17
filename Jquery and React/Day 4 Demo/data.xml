@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<student_list>
+    <student>
+        <name>Mohamed</name>
+        <phone>403-888-7777</phone>
+        <email>sam@server.com</email>
+        <country>Canada</country>
+        <province>AB</province>
+        <city>Calgary</city>
+        <address>1 Country Hills Dr.</ddress>
+    </student>
+    <student>
+        <name>Ali</name>
+        <phone>403-444-5555</phone>
+        <email>ali@server.com</email>
+        <country>Canada</country>
+        <province>AB</province>
+        <city>Calgary</city>
+        <address>10 Saddle town Dr.</ddress>
+    </student>
+</student_list>

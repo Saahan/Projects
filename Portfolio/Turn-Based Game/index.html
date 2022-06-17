@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fantasy Fighters</title>
+    <link href="https://fonts.googleapis.com/css?family=Rye" rel="stylesheet" />
+    <link rel="stylesheet" href="mycss.css" defer />
+    <link rel="stylesheet" href="buttons.css" defer />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+
+    <script src="myscript.js" defer></script>
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <div class="gameflex">
+      <div class="youflex">
+        <div id="playerportrait">
+          <img src="./img/Portraits/10 (272)/Medium.png" alt="" width="450px" />
+        </div>
+        <div class="healthmissplayer">
+          <div class="healthbarplayer" id="healthbarplayer"></div>
+        </div>
+        <br />
+        <button
+          id="attack"
+          onclick="attack(character[0],character[1],1)"
+          class="btn btn-danger"
+        >
+          Strike
+        </button>
+        <button id="defend" onclick="endTurn(0.5)" class="btn btn-secondary">
+          Defend
+        </button>
+        <button id="endturn" onclick="endTurn(1);" class="btn btn-warning">
+          End Turn
+        </button>
+      </div>
+      <div id="logdiv" class="battlelogflex">
+        <h1 class="heading" style="font-family: 'Rye'; color: gold">
+          Fantasy Fighters
+        </h1>
+        <h2 style="font-family: 'Rye'; color: gold">Chapter I</h2>
+        <div id="battlelogdiv" class="battlelogdiv">
+          <p class="battlelog">
+            You suddenly come to your senses and find yourself in a dusty place.
+            Once you settle down, you realise that it is an arena, and you are
+            wearing heavy armor ready with a sword in your right hand and a
+            shield in your left. How did you end up here? A battle-hardened man
+            exclaims to you "I am going to crush you!!, no one messes with The
+            Strange Stranger." You have no choice but to fight for survival.
+          </p>
+          <p id="battlelog" class="battlelog"></p>
+        </div>
+      </div>
+
+      <div class="enemyflex">
+        <div id="enemyportrait">
+          <img src="./img/Portraits/10 (291)/Medium.png" alt="" width="450px" />
+        </div>
+        <div class="healthmissenemy">
+          <div class="healthbarenemy" id="healthbarenemy"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!-- Portraits are courtesy of Owlcat games -->

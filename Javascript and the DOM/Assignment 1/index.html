@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess the Operation</title>
+  
+      <script type="text/javascript" src="assignment1.js" defer></script>
+      <link rel="stylesheet" href="assignment1.css">
+        </head>
+  <body> 
+  
+    <h1>Welcome to Guess the Operation</h1>
+    <h2>Please Enter Two Unequal Non-Zero Numbers</h2>
+    <div class="form1">
+    <form id="f1" action="#">
+      <label class="input1" for="input1">Enter First Number</label>
+      <input type="number" id="input1" placeholder="Enter Number Here" /> <br> <br>
+      <label class="input2" for="input2">Enter Second Number</label>
+      <input type="number" id="input2" placeholder="Enter Number Here" /> <br> <br>
+      <input type="submit" onclick="getVal1(); getVal2(); history.go(0)" value="Go!!">
+      <input type="reset" value="Reset" onclick="history.go(0)">
+    </div>
+<hr>
+
+    <div class="output" id="output">
+<p>
+    Your Result is: <p id="result"></p> <br>
+    Please guess the Mathematical Operation Performed
+</p>
+
+<p>Enter your Guess:</p>
+<form action="#" id="form2">
+<input type="text" id="answer" placeholder="Enter your Guess here">
+<input type="submit" onclick="getAnswer(); answercheck();" value="Go!!">
+</form>
+
+
+<!--   Form for Options instead of numbers guessing field -->
+
+<!-- <div id="options">
+<form action="#">
+  <input type="radio" id="Add" value ="Add" name="answer">
+  <label for="radio">Addition</label> <br>
+  <input type="radio" id="Sub" value ="Sub" name="answer">
+  <label for="radio">Subtraction</label> <br>
+  <input type="radio" id="Mul" value ="Mul" name="answer">
+  <label for="radio">Multiplication</label> <br>
+  <input type="radio" id="Div" value ="Div" name="answer">
+  <label for="radio">Division</label> <br> <br>
+  <input for="options" type="submit" value="Submit" onclick="answercheck()">
+</form>
+</div>
+    </div>   -->
+
+ <hr>
+</body>
+
+<footer>
+  <p>
+    Note: Please round off your answer to one decimal place in case you think its a fraction
+  </p>
+</footer>
+</html>

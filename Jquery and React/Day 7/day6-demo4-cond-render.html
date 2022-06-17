@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>React Conditional Rendering</title>
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // The below code renders the React Element in the our HTML 
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+
+        class CountComp extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { count: this.props.count };
+                this.handleIncrement = this.handleIncrement.bind(this);
+            }
+
+            handleIncrement() { // Regular function need binding this
+                this.setState((state, props) => {
+                    return {
+                        count: state.count + 1
+                    }
+                })
+            }
+            handleDecrement = () => {   // Arrow function doesn't require binding 
+                this.setState((state, props) => {
+                    return {
+                        count: state.count - 1
+                    }
+                })
+            }
+
+            render() {
+                return (
+                    <div>
+                        <div>Current count: {this.state.count}</div>
+                        {this.state.count > 0 &&    // This is a condition for rendering the component 
+                            <button onClick={this.handleDecrement}>
+                                --
+                            </button>
+                        }
+                        <button onClick={this.handleIncrement}>
+                            ++
+                        </button>
+                    </div>
+                );
+            }
+        }
+
+        root.render(<CountComp count={1} />);
+    </script>
+</body>
+
+</html>

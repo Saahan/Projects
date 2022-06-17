@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!-- Author: Saahan dated 8th Feb 2022 -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/mystyles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Athiti"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Carattere"
+      rel="stylesheet"
+    />
+    <style>
+      .nav3 {
+        background-color: whitesmoke;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav class="nav-grid">
+        <div class="nav-item nav1">
+          <a href="../index.html" style="font-weight: bold">Home</a>
+        </div>
+        <div class="nav-item nav2">
+          <a href="gallery.html" style="font-weight: bold">Gallery</a>
+        </div>
+        <div class="nav-item nav3" style="font-weight: bold">Contact Us</div>
+      </nav>
+    </header>
+
+    <h2>Contact Us</h2>
+    <div class="contact">
+      Headoffice: 17 FGH Way, Toronto <br />
+      Tel: +1 (111)1111111 <br />
+      <a class="email" href="mailto:author@example.com">e-mail Us</a>
+    </div>
+    <h2>Sign up for our newsletter</h2>
+    <div id="newslettersignup">
+      <form action="#">
+        <table>
+          <tr>
+            <td><label for="fname">First Name </label></td>
+            <td>
+              <input
+                type="text"
+                id="fname"
+                name="firstname"
+                placeholder="Your First Name.."
+              />
+            </td>
+          </tr>
+
+          <tr>
+            <td><label for="lname">Last Name </label></td>
+            <td>
+              <input
+                type="text"
+                id="lname"
+                name="lastname"
+                placeholder="Your Last Name.."
+              />
+            </td>
+          </tr>
+
+          <tr>
+            <td><label for="email">Email </label></td>
+            <td>
+              <input
+                type="text"
+                id="email"
+                name="email"
+                placeholder="Email Address"
+                required
+              />
+            </td>
+          </tr>
+        </table>
+
+        <p>
+          <label
+            ><input type="checkbox" name="art1" />Art Around the World</label
+          ><br />
+          <label><input type="checkbox" name="art2" />Artists News </label
+          ><br />
+          <label><input type="checkbox" name="art3" />Art Canada News</label>
+        </p>
+        <input class="submit" type="submit" value="Submit" />
+        <button class="reset" type="reset" value="Reset">Reset</button>
+      </form>
+    </div>
+    
+  <footer>
+    <div class="cfooter">Disclaimer: &copy; Imaginary Arts Inc.</div>
+  </footer>
+  </body>
+
+</html>
+
+<!-- Picture Credits:unsplash.com & Google Maps -->

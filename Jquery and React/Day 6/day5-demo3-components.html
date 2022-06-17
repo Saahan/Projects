@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>React Elements</title>
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // The below code renders the React Element in the our HTML 
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+
+        function MainComp(props) {
+            const myElement = (
+                <div>
+                    <h2>Welcome {props.name}</h2>
+                    <h3>This is a simple Function Component</h3>
+                    <p>{props.email}</p>
+                    <SubComponent value='3' />
+                </div>
+            );
+            return myElement;
+        }
+
+        class SubComponent extends React.Component {
+            render() {
+                return (
+                    <span>
+                        <h1>This is a sub component made using Class</h1>
+                        <p>This is a property: {this.props.value}</p>
+                    </span>
+                );
+            }
+        }
+
+        root.render(<MainComp name='Mostafa' email='mostafa@server.com' />);
+    </script>
+</body>
+
+</html>

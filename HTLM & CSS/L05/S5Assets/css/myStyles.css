@@ -1,0 +1,101 @@
+@charset "UTF-8";
+/* ---Global Styles----  */
+* {
+    box-sizing: border-box;
+}
+
+/* ---General Styles----  */
+body {
+    background-color: beige;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1{
+    color: darkturquoise;
+}
+
+h2 {
+    color: gray;
+}
+/* .cols {
+    background-color: grey;
+    padding: 10px;
+    border: 1px solid red;
+    margin: 10px;
+} */
+/* a {
+       padding: 10px;
+    border: 1px solid red;
+    margin: 0px;
+} */
+
+/* ---Main Navigation Styles----  */
+nav{
+    background-color: darkturquoise;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+nav a:link {
+    color: lightcyan;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+nav a:hover{
+    color: palegoldenrod;
+}
+
+
+/* ---Image Styles – box model and float property----  */
+figure {
+    padding: 20px;
+    margin: 10px 20px;
+    border: 1px solid maroon;
+    position: relative;
+    }
+
+    figcaption{
+        background-color: gray;
+        color: white;
+        padding: 10px;
+        position: absolute;
+        bottom: 10px;width: 350px;
+        text-align: center;
+    }
+    img{
+        width:350px;
+        height:auto;
+        vertical-align: middle;
+    }
+
+/* ---Column Styles – display table/table-cell property---- */
+.bluecol{
+background-color: lightskyblue;
+}
+
+.greencol{
+background-color: yellowgreen;
+}
+
+.yellowcol{
+    background-color: yellow;
+
+}
+
+.mycol{
+width: 33.33%;
+height: 400px;
+padding: 20px;
+float: left;
+}
+
+/* ---Align Styles – vertically align content---- */
+
+video{
+    width: 100%;
+    height:auto;
+}
+ .vert {
+     text-align: center;
+ }

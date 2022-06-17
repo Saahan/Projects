@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>React State</title>
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // The below code renders the React Element in the our HTML 
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+
+        class ColorBox extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { color: this.props.color, counter: 0 };
+            }
+            componentDidMount() {
+                // Create a interval timer 
+                this.myTimer = setInterval(
+                    () => { // The function to be called each 1 sec
+                        this.setState((state, props) => {
+                            return { counter: state.counter + 1 };
+                        })
+                    },
+                    1000    // Fires each 1 sec
+                );
+            }
+            componentWillUnmount() {
+                // Stop the timer function 
+                clearInterval(this.myTimer);
+            }
+
+            render() {
+                return (
+                    <div style={{ backgroundColor: this.state.color }}>
+                        {this.state.counter}.
+                    </div>
+                );
+            }
+        }
+
+        root.render(<ColorBox color='#fa5' />);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>React Elements</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script>
+        const users = [
+            {
+                name: "Ali",
+                age: 15,
+                email: 'ali@server.com'
+            },
+            {
+                name: "Sam",
+                age: 23,
+                email: 'sam@server.com'
+            },
+            {
+                name: "Julie",
+                age: 17,
+                email: 'julie@server.com'
+            }
+        ];
+
+        const employees = [
+            {
+                name: "Jack",
+                age: 35,
+                email: 'jack@server.com'
+            },
+            {
+                name: "Li",
+                age: 37,
+                email: 'li@server.com'
+            },
+            {
+                name: "John",
+                age: 47,
+                email: 'john@server.com'
+            }
+        ];
+    </script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // The below code renders the React Element in the our HTML 
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+
+        function MainTable(props) {
+            const myElement = (
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <TableRowComp userIndex={0} users={props.users} />
+                        <TableRowComp userIndex={1} users={props.users} />
+                        <TableRowComp userIndex={2} users={props.users} />
+                    </tbody>
+                </table>
+            );
+            return myElement;
+        }
+        /*
+                class TableRowComp extends React.Component {
+                    render() {
+                        return (
+                            <tr>
+                                <th scope="row">{this.props.userIndex + 1}</th>
+                                <td>{this.props.users[this.props.userIndex].name}</td>
+                                <td>{this.props.users[this.props.userIndex].age}</td>
+                                <td>{this.props.users[this.props.userIndex].email}</td>
+                            </tr>
+                        );
+                    }
+                }
+        */
+        function TableRowComp(props) {
+            return (
+                <tr>
+                    <th scope="row">{props.userIndex + 1}</th>
+                    <td>{props.users[props.userIndex].name}</td>
+                    <td>{props.users[props.userIndex].age}</td>
+                    <td>{props.users[props.userIndex].email}</td>
+                </tr>
+            );
+        }
+
+        class MyHeaderComp extends React.Component {
+            render() {
+                return (
+                    <div className="card" style={{ width: '100%', backgroundColor: 'gray' }}>
+                        <div className="card-body">
+                            <h5 className="card-title">Student List</h5>
+                            <p className="card-text">This is our list of students.</p>
+                            <a href="#" className="btn btn-primary">Go somewhere</a>
+                        </div >
+                    </div >
+                );
+            }
+        }
+
+        root.render(
+            <div className="container">
+                <MyHeaderComp />
+                <h2>Customer</h2>
+                <MainTable users={users} />
+                <h2>Employees</h2>
+                <MainTable users={employees} />
+            </div>
+        );
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

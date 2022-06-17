@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo arrow function</title>
+</head>
+
+<body>
+    <h3>Read more about arrow function <a href="https://www.w3schools.com/Js/js_arrow_function.asp">here</a></h3>
+    <div id="d1"> </div>
+    <div id="d2"> </div>
+
+    <script>
+        function setText() {
+            let d1_element = document.getElementById('d1');
+            d1_element.innerHTML = '<h1>Hello World, using regular function</h1>';
+        }
+        setTextArrow = (counter) => {
+            let d2_element = document.getElementById('d2');
+            d2_element.innerHTML = '<h1>Hello World, using ARROW function</h1><h3>counter=' + counter + '</h3>';
+        }
+        // One line arrow function returns its value
+        multi = (x, y) => x * y;    // This will return the results
+
+        setText();
+        setTextArrow(multi(2, 3));
+    </script>
+</body>
+
+</html>

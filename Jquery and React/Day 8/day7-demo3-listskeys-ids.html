@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>React Lists-Keys-IDs</title>
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <h2>Demo creating a list with keys= IDs.</h2>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // The below code renders the React Element in the our HTML 
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+
+        class StudentList extends React.Component {
+            constructor(props) {
+                super(props);
+            }
+            render() {
+                const students = [{ id: 11, name: 'Sam' }, { id: 13, name: 'Ali' }, { id: 25, name: 'Mike' }];
+                const listItems = students.map((student, index) =>
+                    <li key={student.id}>{student.id}: {student.name}</li>
+                );
+                return (
+                    <ul>
+                        {listItems}
+                    </ul>
+                );
+            }
+        }
+
+        root.render(
+            <div>
+                <StudentList />
+            </div>);
+    </script>
+</body>
+
+</html>

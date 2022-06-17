@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>React Lists-Keys-IDs</title>
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <h2>Demo creating a list with keys= IDs.</h2>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // The below code renders the React Element in the our HTML 
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+
+        class MyFormComp extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    userInput: '',
+                    cel: null
+                };
+
+                this.handleChange = this.handleChange.bind(this);
+                this.handleSubmit = this.handleSubmit.bind(this);
+            }
+
+            handleChange(event) {
+                // Get the input from the user and save it in a state variable
+                // event.target is the input element
+                this.setState({ userInput: event.target.value });
+            }
+
+            handleSubmit(event) {
+                console.log('The form submitted with input: ' + this.state.userInput);
+                this.setState((state, props) => { cel: state.userInput * 1.8 + 32 })
+                event.preventDefault(); // Prevent default form submission behavior 
+            }
+
+            render() {
+                return (
+                    <div>
+                        <form onSubmit={this.handleSubmit}>
+                            <label>
+                                Please enter temperature in Fahrenheit:
+                                <input type="text" value={this.state.userInput} onChange={this.handleChange} />
+                            </label>
+                            <input type="submit" value="Submit" />
+                        </form>
+                        {
+                            this.state.cel &&
+                            <div> The celsius equivalent to {this.state.userInput}F  = {this.state.cel} </div>
+                        }
+                    </div>
+                );
+            }
+        }
+
+        root.render(
+            <div>
+                <MyFormComp />
+            </div>);
+    </script>
+</body>
+
+</html>

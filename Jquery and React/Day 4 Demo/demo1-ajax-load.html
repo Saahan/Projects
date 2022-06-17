@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo basic Ajax</title>
+    <!-- Link jQuery from a CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        .content_div {
+            background-color: rgb(252, 224, 135);
+            border: 3px solid orange;
+            margin: 0px 20px 20px 20px;
+            padding: 10px;
+        }
+
+        .green {
+            color: green;
+        }
+
+        .red {
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>This is an Ajax demo a new</h1>
+    <h2>This content is loaded from a text file:</h2>
+    <div id="text_contents"></div>
+    <h2>This content is loaded from a json file:</h2>
+    <div id="json_contents"></div>
+    <h2>This content is loaded from an html file:</h2>
+    <div id="html_contents"></div>
+    <h2>Load with Check for errors:</h2>
+    <div id="load_check_contents"></div>
+    <h2>Load with Check for errors (fail):</h2>
+    <div id="loadfail_check_contents"></div>
+
+    <script>
+        // Load text data
+        $('#text_contents').load('data.txt');
+        // Load JSON data
+        $('#json_contents').load('data.json');
+        // Load HTML data
+        $('#html_contents').load('data.html');
+        // Load with check for errors
+        $('#load_check_contents').load('data.html', check_response);
+        // Load with check for errors - fail
+        $('#loadfail_check_contents').load('not-found.html', check_response);
+
+        // Change the DIV styles based on part of the ID value
+        $('div[id*="contents"]').addClass('content_div');
+
+        function check_response(responseTxt, statusTxt, xhr) {
+            if (statusTxt == "success")
+                $(this)     // "this" will reference the element that called the function
+                    .append('<h5 class="green"><i>Content loaded successfully.</i></h5>');
+            if (statusTxt == "error")
+                $(this)
+                    .html('<h3 class="red">Content load error.</h3>')
+                    .append("Error: " + xhr.status + ": " + xhr.statusText);
+        }
+    </script>
+</body>
+
+</html>

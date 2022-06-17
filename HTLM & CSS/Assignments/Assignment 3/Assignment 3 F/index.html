@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<!-- Saahan -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dogs</title>
+    <link rel="stylesheet" href="css/mystyle.css" />
+  </head>
+
+  <body>
+    <header>
+      <!-- Navigation Links and Heading -->
+      <nav>
+        <h3 style="color: white; background-color: black; text-align: left">
+          Navigate
+        </h3>
+        <a href="#labs">Labs</a> |
+        <a href="#border-collies">Border Collies</a> |
+        <a href="#Pugs">Pugs</a> |
+      </nav>
+      <h1>Dogs are the Best</h1>
+    </header>
+
+    <!-- Introduction Paragraph with Video-->
+    <div id="Introduction">
+      <video width="960" height="480" autoplay loop>
+        <source src="video/dog-4740.mp4" type="video/mp4" />
+      </video>
+      <h2>Why dogs make the best companions</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rutrum
+        aliquet leo, non efficitur lacus scelerisque in. Proin quis cursus nunc.
+        Quisque a vestibulum sapien. Cras ornare magna id ligula semper finibus
+        ac eu nulla. Cras ut lobortis libero. Mauris varius, orci eu ornare
+        pharetra, nulla velit ultrices magna, eget imperdiet lorem nisi id
+        libero. In ornare vestibulum nulla, eget facilisis elit euismod vel.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+        efficitur, urna non varius ultricies, lorem lorem molestie elit, ac
+        tempus sem nisi id odio. Praesent cursus sed mauris at gravida.
+      </p>
+    </div>
+
+    <section id="articleSection">
+      <h2>Our Articles</h2>
+      <!-- Putting Articles in Table form to arrange into Columns -->
+      <table>
+        <tr>
+          <td>
+            <!-- Article section on Labs -->
+            <article id="labs">
+              <h3 class="atitle">Labs</h3>
+              <figure>
+                <img src="img/dogs-65867_small.jpg" alt="Labs" width="350" />
+                <figcaption>Labs</figcaption>
+              </figure>
+              <p style="text-align: center">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+                ipsam saepe iusto illo laborum voluptatum eos modi. Tempore
+                nihil porro, odio repellat eius consequatur harum.
+              </p>
+            </article>
+          </td>
+          <td>
+            <!-- Article section on Border Collies -->
+            <article id="border-collies">
+              <h3 class="atitle">Border Collie</h3>
+              <figure>
+                <img
+                  src="img/dogs-1694838_small.jpg"
+                  alt="border-collies"
+                  width="350"
+                />
+                <figcaption>Border Collie</figcaption>
+              </figure>
+              <p style="text-align: center">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Asperiores, aspernatur nesciunt nam tenetur aliquam ex voluptate
+                voluptas consectetur cumque velit dolores labore at nobis
+                voluptatem commodi et ut fugit rem nostrum, amet tempore! Qui,
+                alias.
+              </p>
+            </article>
+          </td>
+          <td>
+            <!-- Article section on Pugs -->
+            <article id="Pugs">
+              <h3 class="atitle">Pug</h3>
+              <figure>
+                <img src="img/dogs-374906_small.jpg" alt="Pugs" width="350" />
+                <figcaption>Pug</figcaption>
+              </figure>
+              <p style="text-align: center">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab
+                corrupti nemo maiores magnam sed enim doloremque. Voluptatibus
+                magnam est omnis, sint, recusandae nam cumque porro vel natus
+                atque soluta odio.
+              </p>
+            </article>
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Table section, I have given this table classes of its own to avoid conflict with other table arrangements in the code -->
+
+    <h2>Dog Details</h2>
+    <div>
+      <table class="table">
+        <tbody>
+          <tr class="trow">
+            <th class="thead">Dog Breed</th>
+            <th class="thead">Detail#1</th>
+            <th class="thead">Detail#2</th>
+            <th class="thead">Detail#2</th>
+          </tr>
+          <tr class="trow">
+            <td class="tcol">Labs</td>
+            <td class="tcol">Content1.1</td>
+            <td class="tcol">Content1.2</td>
+            <td class="tcol">Content1.3</td>
+          </tr>
+          <tr class="trow">
+            <td class="tcol">Border Collie</td>
+            <td class="tcol">Content2.1</td>
+            <td class="tcol">Content2.2</td>
+            <td class="tcol">Content2.3</td>
+          </tr>
+          <tr class="trow">
+            <td class="tcol">Pug</td>
+            <td class="tcol">Content3.1</td>
+            <td class="tcol">Content3.2</td>
+            <td class="tcol">Content3.3</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Newsletter signup form section -->
+    <div id="newslettersignup">
+      <h3 style="text-align: left">Sign up for our newsletter</h3>
+      <form action="#">
+        <table>
+          <tr>
+            <td><label for="fname">First Name </label></td>
+            <td>
+              <input
+                type="text"
+                id="fname"
+                name="firstname"
+                placeholder="Your First Name.."
+              />
+            </td>
+          </tr>
+
+          <tr>
+            <td><label for="lname">Last Name </label></td>
+            <td>
+              <input
+                type="text"
+                id="lname"
+                name="lastname"
+                placeholder="Your Last Name.."
+              />
+            </td>
+          </tr>
+
+          <tr>
+            <td><label for="email">Email </label></td>
+            <td>
+              <input
+                type="text"
+                id="email"
+                name="email"
+                placeholder="Email Address"
+                required
+              />
+            </td>
+          </tr>
+        </table>
+
+        <p>
+          <label><input type="checkbox" name="lab" /> Lab Newsletter</label
+          ><br />
+          <label
+            ><input type="checkbox" name="border" /> Border Collie
+            Newsletter</label
+          ><br />
+          <label><input type="checkbox" name="pug" /> Pug Newsletter</label>
+        </p>
+        <input type="submit" value="Submit" />
+        <button type="reset" value="Reset">Reset</button>
+      </form>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+      <p class="footer" style="border: none">
+        Posted by: <cite class="footer">Saahan</cite><br />
+        Copyright &copy; 2021
+      </p>
+      <p class="footer" style="border: none">
+        <a href="mailto:author@example.com" class="footer" style="color: silver"
+          >Contact the Author</a
+        >
+      </p>
+    </footer>
+  </body>
+</html>

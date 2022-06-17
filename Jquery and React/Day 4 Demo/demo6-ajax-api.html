@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get country info</title>
+    <!-- Link jQuery from a CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+      // Create a free account on https://ipgeolocation.io/
+      // Get the key and URL from there.
+      const Goe_API_KEY = "6da3e322f6b2419cb3408294c0a790d2";
+      const settings = {
+        async: true,
+        crossDomain: true,
+        url: `https://api.ipgeolocation.io/getip`,
+        method: "GET",
+      };
+      $(() => {
+        $.ajax(settings).done(function (response) {
+          console.log(response);
+          //jQuery('#countryinfo').html(response)
+          getAstronomy(response.ip);
+        });
+      });
+
+      function getAstronomy(ip) {
+        settings.url = `https://api.ipgeolocation.io/astronomy?apiKey=${Goe_API_KEY}&ip=${ip}`;
+        $.ajax(settings).done(function (response) {
+          console.log("SunRise", response.sunrise);
+          console.log("SunSet", response.sunset);
+          getWeather(response.location.latitude, response.location.longitude);
+        });
+      }
+
+      function getWeather(lat, lon) {
+        // Create a free account on https://openweathermap.org/
+        const Weather_API_key = "7595cf0bc3013baf6f60d50f4ff464fa";
+        settings.url =
+          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${Weather_API_key}&units=metric`;
+        $.ajax(settings).done(function (response) {
+          console.log(response);
+          $("#tempid").html(
+            `<h3>The current temperature is: ${response.main.temp}</h3>`
+          );
+          $("#tempid").append(`<h3>Sunrise: ${response.sys.sunrise}</h3>`);
+          jQuery("#countryinfo").html(JSON.stringify(response));
+        });
+      }
+    </script>
+  </head>
+
+  <body>
+    <h2>Country info:</h2>
+    <div id="countryinfo"></div>
+    <div id="tempid"></div>
+  </body>
+</html>

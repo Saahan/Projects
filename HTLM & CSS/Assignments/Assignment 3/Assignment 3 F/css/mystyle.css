@@ -1,0 +1,111 @@
+/* Author: Saahan */
+
+/* General Styling */
+
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: whitesmoke;
+}
+
+/* Heading Styling */
+h1,
+h2,
+h3 {
+  text-align: center;
+  background-color: maroon;
+  color: mintcream;
+  width: 100%;
+}
+
+.atitle {
+  background-color: lightsalmon;
+  color: black;
+}
+/* Image & Video Styling */
+figure {
+  text-align: center;
+  position: static;
+}
+
+figcaption {
+  position: relative;
+  font-style: italic;
+}
+
+video {
+  margin-left: 260px;
+}
+/* Footer Styling */
+
+.footer,
+footer {
+  background-color: gray;
+  font-style: italic;
+}
+
+/* Article Column Styling */
+td {
+  vertical-align: initial;
+}
+
+/* Form Styling */
+input,
+button {
+  background-color: lightsalmon;
+  color: black;
+}
+/* Nav bar styling */
+
+nav {
+  background-color: gray;
+  position: relative;
+  top: 21.5px;
+}
+
+/* Link styling */
+a {
+  text-align: center;
+  background-color: gray;
+  color: black;
+}
+
+a:hover {
+  color: white;
+}
+
+a:active {
+  color: lightsalmon;
+}
+
+/* Table Styling */
+.table {
+  margin-left: 500px;
+  border-collapse: collapse;
+}
+
+.tcol {
+  text-align: center;
+  border: 2px solid black;
+  padding: 20px;
+  background-color: transparent;
+}
+
+tbody .tcol:nth-child(even) {
+  background-color: lightsalmon;
+}
+
+.thead {
+  background-color: maroon;
+  color: white;
+  text-align: center;
+  border: 2px solid black;
+}
+
+.trow {
+  background-color: whitesmoke;
+}
+
+.trow:hover > .tcol {
+  background-color: green;
+}
+/* I was having issues with overwriting the background color of rows over columns, the > is used to give priority to the .trow:hover over .tcol style */

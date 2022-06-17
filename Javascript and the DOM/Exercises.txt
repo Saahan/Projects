@@ -1,0 +1,7 @@
+Exercise 1: Kelvin Weather
+https://www.codecademy.com/courses/introduction-to-javascript/projects/kelvin-weather-javascript
+
+
+Exercise 2: Dog years
+
+https://www.codecademy.com/courses/introduction-to-javascript/projects/dog-years-javascript

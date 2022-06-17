@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Forms</title>
+    <!-- Link jQuery from a CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .dark {
+            color: white;
+            background-color: black;
+        }
+
+        .darkRed {
+            color: rgb(251, 244, 172);
+            background-color: rgb(249, 71, 71);
+        }
+
+        .largTxt {
+            font-size: 150%;
+        }
+
+        .green {
+            color: green;
+        }
+
+        .boldItl {
+            font-weight: bold;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>This is jQuery Forms demo</h2>
+    <form>
+
+        <input type="button" value="Button 1"> <br><br>
+        <input type="checkbox"> This is a checkbox.<br><br>
+
+        <input type="file"><br><br>
+
+        <input type="password"><br><br>
+        <hr>
+        <input name="r1" type="radio" checked value="Radio 1"> Radio 1<br>
+        <input name="r1" type="radio" value="Radio 2"> Radio 2<br>
+        <input name="r1" type="radio" value="Radio 3"> Radio 3<br><br>
+        <hr>
+        <input type="reset"><br><br>
+
+        <input type="submit"><br><br>
+        <input type="text"><br><br>
+        <select>
+            <option>Option 1</option>
+            <option>Option 2</option>
+            <option>Option 3</option>
+        </select><br><br>
+
+        <button>Button</button>
+    </form>
+
+    <div></div>
+
+    <script>
+        var inputs = $(":button").addClass("dark");
+        $("div").text("For this type jQuery found " + inputs.length + ".");
+
+        // Select all checkboxes
+        var checkBoc_input = $("form input:checkbox").prop('checked', 'true');
+
+        $(':checked').each((i, elm) => console.log($(elm).attr('value')))
+
+        // Select all input, textarea, select and button elements.
+        $(":input").addClass("darkRed");
+
+        // Prevent the form from submitting
+        $("form").submit(function (event) {
+            event.preventDefault();
+        });
+    </script>
+</body>
+
+</html>

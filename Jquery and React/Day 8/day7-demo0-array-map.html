@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Array Map</title>
+</head>
+
+<body>
+    <h3>Read more about Array map function <a href="https://www.w3schools.com/jsref/jsref_map.asp">here</a></h3>
+    <div id="d1"> </div>
+    <div id="d2"> </div>
+
+    <script>
+        function setSRT() {
+            let d1_element = document.getElementById('d1');
+            const numbers = [4, 9, 16, 25];
+            const newArr = numbers.map(Math.sqrt)
+            d1_element.innerHTML = `<h2>Roots of: ${numbers} are: ${newArr}</h2>`;
+        }
+        setDoubles = () => {
+            let d2_element = document.getElementById('d2');
+            const numbers = [4, 9, 16, 25];
+            const doubles = numbers.map((number) => number * 2)
+            d2_element.innerHTML = `<h2>Doubles of: ${numbers} are: ${doubles}</h2>`;
+        }
+        setDoublesWithIndex = () => {
+            let d2_element = document.getElementById('d2');
+            const numbers = [4, 9, 16, 25];
+            const doublesIndex = numbers.map((number, index) => `${index}:${number * 2}`)
+            d2_element.innerHTML = `<h2>Doubles with index of: ${numbers} are: ${doublesIndex}</h2>`;
+        }
+
+        setSRT();
+        setDoubles();
+        setDoublesWithIndex();
+    </script>
+</body>
+
+</html>

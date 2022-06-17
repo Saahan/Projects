@@ -1,0 +1,29 @@
+[
+    {
+        "Name": "Mohamed",
+        "Phone": "403-888-7777",
+        "Email": "sam@server.com",
+        "Country": "Canada",
+        "Province": "AB",
+        "City": "Calgary",
+        "Address": "1 Country Hills Dr."
+    },
+    {
+        "Name": "Ali",
+        "Phone": "403-444-5555",
+        "Email": "ali@server.com",
+        "Country": "Canada",
+        "Province": "AB",
+        "City": "Calgary",
+        "Address": "10 Saddle town Dr."
+    },
+    {
+        "Name": "Mike",
+        "Phone": "403-111-4444",
+        "Email": "mike@server.com",
+        "Country": "Canada",
+        "Province": "AB",
+        "City": "Calgary",
+        "Address": "22 Somewhere."
+    }
+]

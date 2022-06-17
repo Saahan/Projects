@@ -1,0 +1,72 @@
+
+body {
+    background: url(./img/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+
+
+.gameflex {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.youflex {
+  text-align: center;
+    width: 33.33%;
+    margin-top: 90px;
+}
+
+.battlelogflex {
+    width: 33.33%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.healthbarplayer {
+    margin-left: 0px;
+    background-color: green;
+    height: 20px;
+    width: 450px;
+    
+}
+
+.healthbarenemy {
+    margin-right: 0px;
+    background-color: green;
+    height: 20px;
+    float: right;
+    width: 450px;
+   
+}
+
+.enemyflex {
+    text-align: center;
+      width: 33.33%;
+      margin-top: 90px;
+  }
+
+.healthmissplayer {
+    background-color: red;
+    height: 20px;
+    margin-left: 78px;
+    width: 450px;
+}
+
+.healthmissenemy {
+    background-color: red;
+    height: 20px;
+    margin-right: 78px;
+    width: 450px;
+    float: right;
+}
+
+.battlelogdiv {
+    margin-top: 20px;
+}
+
+.battlelog {
+    font-size: 20px;
+    color: gold;
+}

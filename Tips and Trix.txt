@@ -1,0 +1,34 @@
+Coversion of unix date to normal date
+
+dt=new Date(1234567890 * 1000).toLocaleString(); gives date+time — or use .toLocaleDateString() or .toLocaleTimeString()
+
+play audio with javascript
+
+    var audio = new Audio('./sounds/sword.mp3');
+    audio.play();
+
+To put footer at the bottom of page in JSX, give it the style as below
+
+style={{
+          position: "fixed",
+          left: 0,
+          bottom: 0,
+          right: 0,
+          backgroundColor: "green"
+        }}
+
+
+center div JSX,
+
+ style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100vh',
+      }}
+
+
+To center all children of a parent grid, use Justify-content: center in the parent grid.
+
+
+git reflog to see previous deleted commits, get the ID and do a git reset --hard <ID> to revert to that deleted commit state. Saved my ass.

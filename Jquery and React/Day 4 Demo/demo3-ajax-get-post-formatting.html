@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo basic Ajax</title>
+    <!-- Link jQuery from a CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <style>
+        .content_div {
+            background-color: rgb(252, 224, 135);
+            border: 3px solid orange;
+            margin: 0px 20px 20px 20px;
+            padding: 10px;
+        }
+
+        .green {
+            color: green;
+        }
+
+        .red {
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>This is an Ajax demo building table dynamically</h1>
+
+        <h2>This content is loaded from a json file:</h2>
+        <div id="json_contents"></div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Prov</th>
+                    <th scope="col">Country</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+
+
+            </tbody>
+        </table>
+
+    </div>
+
+    <script>
+        // Gets JSON data, use a callback function to process the data
+        let jdiv = $('#json_contents');     // store the element to show the data in
+        $.get("data.json", process_response, 'json');   // specifying the format is optional 
+
+        // Change the DIV styles based on part of the ID value, will not work without proper server
+        $('div[id*="contents"]').addClass('content_div');
+
+        function process_response(response, statusTxt, xhr) {
+            // If the response is an object, serialize it to text
+            //if (typeof (response) == 'object') response = JSON.stringify(response);
+            if (statusTxt == "success") {
+                jdiv     // "this" will reference the element that called the function
+                    .html(//response +
+                        '<h5 class="green"><i>Content loaded successfully.</i></h5>');
+                for (let i = 0; i < response.length; i++) {
+                    $('#tbody').append(`<tr><th>${i + 1}</th><td>${response[i].Name}</td><td>${response[i].Phone}</td><td>${response[i].Email}</td><td>${response[i].Address}</td><td>${response[i].City}</td><td>${response[i].Province}</td><td>${response[i].Country}</td></tr>`)
+                }
+
+            }
+            if (statusTxt == "error")
+                jdiv
+                    .html('<h3 class="red">Content load error.</h3>')
+                    .append("Error: " + xhr.status + ": " + xhr.statusText);
+        }
+    </script>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

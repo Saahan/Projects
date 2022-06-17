@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>React Lifecycle</title>
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // The below code renders the React Element in the our HTML 
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+
+        class LifeCycleComp extends React.Component {
+            componentDidMount() {
+                console.log('Component Mounted')
+            }
+            componentWillUnmount() {
+                console.log('Component Removed')
+            }
+
+            render() {
+                return (
+                    <div >
+                        Text contents
+                    </div>
+                );
+            }
+        }
+
+        root.render(<LifeCycleComp />);
+    </script>
+</body>
+
+</html>

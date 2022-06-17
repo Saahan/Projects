@@ -1,0 +1,160 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* ---Global Styles----  */
+
+* {
+  box-sizing: border-box;
+}
+
+/* ---General Styles----  */
+
+body {
+  font-family: Arial, "sans-serif";
+}
+h1 {
+  color: darkturquoise;
+}
+h2 {
+  color: gray;
+}
+
+/* ---another  Styles----  */
+
+nav {
+  background-color: darkturquoise;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+nav a:link {
+  color: lightcyan;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+nav a:active,
+a:visited {
+  color: cyan;
+}
+
+nav a:hover {
+  color: paleturquoise;
+}
+
+/* ---Image Styles – example of the box model and float property----  */
+
+figure {
+  float: right;
+  padding: 10px;
+  border: 1px solid grey;
+  margin: 10px 20px;
+  position: relative;
+}
+img {
+  width: 350px;
+  height: auto;
+  /* as an img is a inline element, centre the image to get rid of extra space below the image  */
+  vertical-align: middle;
+}
+figcaption {
+  background-color: grey;
+  color: white;
+  padding: 10px;
+  margin-top: 0px;
+  position: absolute;
+  bottom: 10px;
+  width: 350px;
+}
+
+.divborder {
+  border: 3px solid darkturquoise;
+  padding: 10px;
+}
+
+/* this is the modern fix for this problem */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* ---Column Styles – example of the display table/table-cell property---- */
+
+.bluecol {
+  background-color: cyan;
+}
+.greencol {
+  background-color: greenyellow;
+}
+.yellowcol {
+  background-color: yellow;
+}
+
+.mycolumn {
+  float: left;
+  width: 33.33%;
+  height: 200px;
+  padding: 50px;
+}
+
+/* ---Video Style ---- */
+
+video {
+  width: 100%;
+  height: auto;
+}
+
+/* ---Align Styles – example of how to vertically align content---- */
+#vertcontainer {
+  display: table;
+  width: 100%;
+}
+.vert {
+  display: table-cell;
+  vertical-align: middle;
+  width: 500px;
+  height: 200px;
+  padding: 50px;
+  background-color: lightgrey;
+  text-align: center;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 768px){
+
+	h1 {
+		font-size: 28px;
+	}
+	h2 {
+		font-size: 20px;
+	}
+
+	* {
+		margin:0px;
+	}
+	figure {
+		float: none;
+		padding:0px;
+		border:none;
+		margin:15px 0px;
+	}
+	.mycolumn {
+		float:none;
+		width:100%;
+		padding:15px;
+	}
+	img {
+		width:100%;
+		height:auto;
+	}
+	figcaption {
+		bottom:0px;
+		width:100%;
+	}
+
+	#myvideo {
+		display:none;
+	}
+}
+	

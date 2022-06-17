@@ -1,0 +1,86 @@
+@charset "UTF-8";
+/* CSS Document */
+
+* { 
+    font-family: Arial, "sans-serif";
+	/* Include the padding and border in the calculated width and height of an element  */
+	box-sizing: border-box;
+}
+
+body {
+	/* set the margin to 0 so you control the margin not the browser default  */
+	margin: 0px;
+}
+
+.flex-item {
+	background-color: #DCDCDC;
+	margin: 10px 5px;
+	padding: 10px;
+	text-align: center;
+}
+
+
+/* Flex 1: main axis is set to row/row-reverse */
+.flex1-container {
+	background: #58595b;
+	padding: 10px;
+	height:500px;
+	display:flex;
+	flex-direction:row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.flex1-item1 {
+flex-grow: 1;
+}
+
+
+.flex1-item6 {
+	flex-basis: 250px;
+	flex-shrink: 0;
+}
+
+
+/* Flex 2: main axis is set to column/column-reverse */
+
+.flex2-container {
+	background: 58595b;
+	height:700px;
+	display: flex;
+	flex-direction: column;
+}
+
+.flex-c-item {
+	background-color: #DCDCDC;
+	margin: 5px 10px;
+	padding:30px;
+	text-align: center;
+}
+
+.flex2-item1 {
+	flex: 1 1 60%;
+	order:4;
+	}
+	
+	.flex2-item2 {
+		order: 1;
+		
+	}
+	
+	.flex2-item3 {
+		order:2;
+	}
+	
+	.flex2-item4 {
+		order:3;
+	}
+
+
+
+
+
+
+
+
