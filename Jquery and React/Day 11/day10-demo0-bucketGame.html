@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>Bucket Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        .bucket {
+            border: 4px solid blue;
+            border-top: 0px;
+
+            height: 100px;
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        .bucketContainer {
+            border-bottom: 2px solid black;
+            height: 200px;
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        .bucketMainContainer {
+            display: flex;
+        }
+
+        .water {
+            background-color: aqua;
+            height: 80px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // The below code renders the React Element in the our HTML 
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+
+        function Bucket(props) {
+            const myElement = (
+                <div className='bucketContainer col'>
+                    <div className='bucket' style={{ height: props.size * 20, marginBottom: props.raise * 20 }}>
+                        <div className='water' style={{ height: props.waterLevel * 20 }}>
+                        </div>
+                    </div>
+                </div>
+            );
+            return myElement;
+        }
+
+        setInterval(show, 500);
+        var t = 0
+
+        function show() {
+            root.render(
+                <div className="container">
+                    <div className='row'>
+                        <Bucket size={5} waterLevel={t % 6} raise={2} />
+                        <Bucket size={3} waterLevel={t % 4} raise={0} />
+                        <Bucket size={4.5} waterLevel={t % 5} raise={0} />
+                    </div>
+                </div >
+            );
+            t++;
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
