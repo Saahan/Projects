@@ -2,6 +2,7 @@ import React from "react";
 import WeatherData from "./weatherdata";
 import Graph from "./graph";
 import Settings from "./settings";
+import "./body.css"
 
 export default class Body extends React.Component {
   constructor(props) {
@@ -123,13 +124,15 @@ export default class Body extends React.Component {
 
     }
 
+    
     return (
-      <div>
-        <div>
-          <WeatherData weatherObj={this.props.weatherObj} tempFlag={this.state.tempFlag}/>
+      <div className="maingrid">
+        <div className='grid-item1'>
+          <WeatherData weatherObj={this.props.weatherObj} tempFlag={this.state.tempFlag} />
         </div>
-        <div>
+        <div className='grid-item2'>
           <Graph
+            
             showTempGraph={this.state.showTempGraph}
             showWindGraph={this.state.showWindGraph}
             showFeelsGraph={this.state.showFeelsGraph}
@@ -172,6 +175,7 @@ export default class Body extends React.Component {
             ]}
           />
         </div>
+        <div className='grid-item3'>
         <Settings
           showTempGraph={this.showTempGraph}
           showTempLine={this.state.showTempGraph}
@@ -181,7 +185,9 @@ export default class Body extends React.Component {
           showFeelsLine={this.state.showFeelsGraph}
           sendTempFlag = {this.sendTempFlag}
           default = {this.state.tempFlag}
+          
         />
+        </div>
       </div>
     );
   }

@@ -14,7 +14,7 @@ export default class Graph extends React.Component {
   
   { return(
     <div>
-  <LineChart width={600} height={300} data={this.props.data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+  <LineChart width={1100} height={400} data={this.props.data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
     {this.props.showTempGraph == true &&
     <Line type="monotone" dataKey="Temperature" stroke="#1c12e0" />}
     {this.props.showWindGraph == true &&

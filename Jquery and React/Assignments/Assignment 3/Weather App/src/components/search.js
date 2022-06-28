@@ -46,15 +46,13 @@ export default class Search extends React.Component {
 
   render() {
     return (
-      <div>
-        <form>
-          <label>Search for a City Name:</label>
+      <div className="flexbar">
+        <form className="searchbar">
           <div>
             <input type="text" onChange={this.handleUserInput} />
-          </div>
-          <div>
-            <button type="button" onClick={this.submitCity}>
-              Search
+          
+            <button type="button" onClick={this.submitCity} className="btn btn-secondary">
+              Lookup Cities
             </button>
           </div>
         </form>

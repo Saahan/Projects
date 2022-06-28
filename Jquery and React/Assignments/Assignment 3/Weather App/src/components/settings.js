@@ -1,4 +1,5 @@
 import React from "react";
+import "./body.css"
 
 export default class Settings extends React.Component {
   constructor(props) {
@@ -36,6 +37,7 @@ export default class Settings extends React.Component {
       <div>
         <div>
           <h4>Settings</h4>
+          <hr/>
           <div>
             <input
               type="radio"
@@ -43,20 +45,21 @@ export default class Settings extends React.Component {
               id="tempUnit1"
               checked={this.props.default}
               onChange={() => this.switchTemperatureScale(true)}
+              className="radio1"
             />
             <label htmlFor="Celsius">Celsius</label>
-          </div>
-          <div>
+            <span>      </span>
             <input
               type="radio"
               name="tempCelsius"
               id="tempUnit2"
               onChange={() => this.switchTemperatureScale(false)}
+              className="radio2"
             />
             <label htmlFor="Fahrenheit">Fahrenheit</label>
           </div>
           <input
-            className="form-check-input"
+            className="checkBox1"
             type="checkbox"
             id="Temperature"
             checked={this.state.show}
@@ -66,9 +69,9 @@ export default class Settings extends React.Component {
           <label className="form-check-label" htmlFor="Temperature">
             Temperature
           </label>
-
+            <br/>
           <input
-            className="form-check-input"
+            className="checkBox2"
             type="checkbox"
             id="Wind-Speed"
             checked={this.state.show2}
@@ -76,11 +79,11 @@ export default class Settings extends React.Component {
             name="Wind-Speed"
           />
           <label className="form-check-label" htmlFor="Wind-Speed">
-            Wind-Speed
+              Wind-Speed
           </label>
-
+          <br/>
           <input
-            className="form-check-input"
+            className="checkBox3"
             type="checkbox"
             id="Feels-Like"
             checked={this.state.show3}
@@ -88,7 +91,7 @@ export default class Settings extends React.Component {
             name="Feels-Like"
           />
           <label className="form-check-label" htmlFor="Feels-Like">
-            Feels-Like
+              Feels-Like
           </label>
         </div>
       </div>

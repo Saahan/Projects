@@ -31,7 +31,7 @@ export default class Select extends React.Component {
   render() {
     const cities = this.props.data;
     return (
-      <div>
+      <div className="selectbar">
         {cities[0] ? (
           <form onSubmit={this.handleSubmit}>
             <label>Select City:</label>
@@ -46,9 +46,9 @@ export default class Select extends React.Component {
                 </option>
               ))}
             </select>
-            <div>
-              <input type="submit" value="Apply" />
-            </div>
+            
+              <input type="submit" value="Apply" class="btn btn-secondary"/>
+            
           </form>
         ) : (
           <p>No Cities Found, Try Again</p>
