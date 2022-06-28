@@ -2,6 +2,15 @@ Coversion of unix date to normal date
 
 dt=new Date(1234567890 * 1000).toLocaleString(); gives date+time — or use .toLocaleDateString() or .toLocaleTimeString()
 
+
+
+Settings to display time using .toLocateTimeString
+
+var dateWithouthSecond = new Date();
+dateWithouthSecond.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
+
+
 play audio with javascript
 
     var audio = new Audio('./sounds/sword.mp3');
@@ -32,3 +41,23 @@ To center all children of a parent grid, use Justify-content: center in the pare
 
 
 git reflog to see previous deleted commits, get the ID and do a git reset --hard <ID> to revert to that deleted commit state. Saved my ass.
+
+
+
+this is the option to disable initial selection:
+
+<option value="" selected disabled hidden>
+               Select City
+              </option>
+
+
+Fetch request javascript skeleton:
+
+fetch(`${url}`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        this.setState({ <custom state object>: data });
+        console.log("API data came mounted");
+      });
+  

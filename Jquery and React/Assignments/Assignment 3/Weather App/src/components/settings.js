@@ -1,64 +1,97 @@
 import React from "react";
 
 export default class Settings extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleTempUnitChange = this.handleTempUnitChange.bind(this);
-        this.handleChange = this.handleChange.bind(this);
-    }
-    handleTempUnitChange(value) {
-        this.props.settingsChangeHandler({ tempCelsius: value })
-    }
-    handleChange(event) {
-        // console.log(event.target.value)
-        const name = event.target.name;
-        const value = event.target.checked;
-        this.props.settingsChangeHandler({ [name]: value })
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      show: this.props.showTempLine,
+      show2: this.props.showWindLine,
+      show3: this.props.showFeelsLine
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleChange2 = this.handleChange2.bind(this);
+  }
 
-    render() {
-        const celsius = this.props.settings['tempCelsius'];
-        // console.log(celsius)
-        return (
-            <div className="card">
-                <div className="card-body">
-                    <h4>Settings</h4>
-                    <div className="form-check form-check-inline">
-                        <input data-testid='tempUnit1' className="form-check-input" type="radio" name="tempCelsius" id='tempUnit1'
-                            checked={celsius} onChange={() => this.handleTempUnitChange(true)} />
-                        <label className="form-check-label" htmlFor="tempUnit1">
-                            Celsius
-                        </label>
-                    </div>
-                    <div className="form-check form-check-inline">
-                        <input data-testid='tempUnit2' className="form-check-input" type="radio" name="tempCelsius" id='tempUnit2'
-                            checked={!celsius} onChange={() => this.handleTempUnitChange(false)} />
-                        <label className="form-check-label" htmlFor="tempUnit2">
-                            Fahrenheit
-                        </label>
-                    </div>
+  handleChange = (index) => {
+    this.setState({ show: index.target.checked });
+    this.props.showTempGraph(this.state.show);
+  };
 
-                    <CheckBox name='displayTemp' checked={this.props.settings['displayTemp']}
-                        text='Temperature' handleChange={this.handleChange} />
+  handleChange2 = (index) => {
+    this.setState({ show2: index.target.checked });
+    this.props.showWindGraph(this.state.show2);
+  };
 
-                    <CheckBox name='displayWind' checked={this.props.settings['displayWind']}
-                        text='Wind Speed' handleChange={this.handleChange} />
-                </div>
-            </div>
-        );
-    }
-}
+  handleChange3 = (index) => {
+    this.setState({ show3: index.target.checked });
+    this.props.showFeelsGraph(this.state.show3);
+  };
 
-
-function CheckBox(props) {
+  switchTemperatureScale = (index) => {this.setState({tempFlag: !index}); 
+  //console.log(this.state.tempFlag); 
+  this.props.sendTempFlag(this.state.tempFlag)}
+  
+  render() {
     return (
-        <div className="form-check my-3">
-            <input className="form-check-input" type="checkbox" id={props.name}
-                checked={props.checked} onChange={props.handleChange} name={props.name}
+      <div>
+        <div>
+          <h4>Settings</h4>
+          <div>
+            <input
+              type="radio"
+              name="tempCelsius"
+              id="tempUnit1"
+              checked={this.props.default}
+              onChange={() => this.switchTemperatureScale(true)}
             />
-            <label className="form-check-label" htmlFor={props.name}>
-                {props.text}
-            </label>
+            <label htmlFor="Celsius">Celsius</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              name="tempCelsius"
+              id="tempUnit2"
+              onChange={() => this.switchTemperatureScale(false)}
+            />
+            <label htmlFor="Fahrenheit">Fahrenheit</label>
+          </div>
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="Temperature"
+            checked={this.state.show}
+            onChange={this.handleChange}
+            name="Temperature"
+          />
+          <label className="form-check-label" htmlFor="Temperature">
+            Temperature
+          </label>
+
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="Wind-Speed"
+            checked={this.state.show2}
+            onChange={this.handleChange2}
+            name="Wind-Speed"
+          />
+          <label className="form-check-label" htmlFor="Wind-Speed">
+            Wind-Speed
+          </label>
+
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="Feels-Like"
+            checked={this.state.show3}
+            onChange={this.handleChange3}
+            name="Feels-Like"
+          />
+          <label className="form-check-label" htmlFor="Feels-Like">
+            Feels-Like
+          </label>
         </div>
+      </div>
     );
+  }
 }
