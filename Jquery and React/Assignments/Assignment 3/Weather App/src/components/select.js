@@ -47,7 +47,7 @@ export default class Select extends React.Component {
               ))}
             </select>
             
-              <input type="submit" value="Apply" class="btn btn-secondary"/>
+              <input type="submit" value="Apply" className="btn btn-secondary"/>
             
           </form>
         ) : (
