@@ -99,7 +99,7 @@ export default class WeatherData extends React.Component {
           <div className="icon">
           <span>{icon}</span></div>
           <ul className="weatherlist">
-            <li onClick={this.handleClick1}>{dt}:  {temp + unit}, {this.props.weatherObj.list[0].weather[0].description} 
+            <li onClick={this.handleClick1} data-testid='11'>{dt}:  {temp + unit}, {this.props.weatherObj.list[0].weather[0].description} 
             {this.state.index1 == true &&  <span><br/>Humidity : {this.props.weatherObj.list[0].main.humidity}% <br/>Feels-like : {feelslike + unit}
             <br/>Wind-speed : {parseInt(this.props.weatherObj.list[0].wind.speed)} Km/Hr </span>}</li>
 
